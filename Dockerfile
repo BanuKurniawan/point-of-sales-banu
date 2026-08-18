@@ -5,9 +5,16 @@ WORKDIR /var/www/html
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
-    curl
+    curl \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev
 
-RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+
+RUN docker-php-ext-install \
+    pdo_mysql \
+    gd
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
