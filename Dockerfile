@@ -1,3 +1,15 @@
+FROM node:20 AS frontend
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm ci
+
+COPY . .
+
+RUN npm run build
+
 FROM php:8.4-cli
 
 WORKDIR /var/www/html
