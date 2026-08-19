@@ -34,6 +34,8 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY . .
 
+COPY --from=frontend /app/public/build /var/www/html/public/build
+
 RUN composer install \
     --no-dev \
     --optimize-autoloader \
