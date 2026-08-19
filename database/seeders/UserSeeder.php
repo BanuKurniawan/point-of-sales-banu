@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Arya Dwi Putra',
                 'password' => Hash::make('password'),
+                'email_verified_at' => now(),
             ]
         );
 
@@ -40,6 +41,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Cashier',
                 'password' => Hash::make('password'),
+                'email_verified_at' => now(),
             ]
         );
 
